@@ -1,0 +1,56 @@
+<form [formGroup]="student" (ngSubmit)="onSubmit()">
+        <div class="section_01">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                    <div class="whtbg">
+               
+                <div class="col-md-12">
+                    <p class="size40">Student Information</p>
+                </div>
+                <div class="col-md-12">
+                    <p class="size20">Name</p>
+                    <div class="form-group">
+                        <input type="text" formControlName="name" value="" [class.is-invalid]="student.get('name').invalid && student.get('name').touched" name="name" class="form-control" placeholder='Name'>
+                        
+                    {{data.name}}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="size20">Age</p>
+                    <div class="form-group">
+                        <input type="date"  formControlName="age" [class.is-invalid]="student.get('age').invalid && student.get('age').touched" name=" " class="form-control">
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="size20">Mobile No.</p>
+                    <div class="form-group">
+                        <input type="text" name=" "  [class.is-invalid]="student.get('mobile').invalid && student.get('mobile').touched" formControlName="mobile" placeholder="Mobile Number" class="form-control">
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="size20">Class</p>
+                    <div class="form-group">
+                        <input type="search" list="sp" [class.is-invalid]="student.get('class').invalid && student.get('class').touched" name=" " formControlName="class" placeholder=" Choose a Class" class="form-control">
+                        <datalist id="sp">
+            
+                            <option  *ngFor="let info of st">{{info}}</option>
+                        </datalist>
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                
+                        <button type="submit" [disabled]="student.invalid" (click)='onSubmit()'>Save</button>
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        </form>
+        
+        
+        
