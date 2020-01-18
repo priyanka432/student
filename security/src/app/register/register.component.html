@@ -1,0 +1,70 @@
+<video loop autoplay ><source src="../../assets/bg.webm"></video>
+<form [formGroup]="reg">
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 whtbg">
+     <h1>Regitration</h1>
+     <div class="col-md-12">
+         <input type="text" formControlName="name" [class.is-invalid]="reg.get('name').invalid && reg.get('name').touched" class="form-control top20" placeholder="name">
+         <p [class.d-none]="reg.get('name').valid || reg.get('name').untouched" class="text-danger">Name is Required</p>
+   </div>
+    
+    <div class="col-md-12">
+        <input type="text" formControlName="phone" [class.is-invalid]="reg.get('phone').invalid && reg.get('phone').touched" class="form-control" placeholder="Phone Number">
+        <p [class.d-none]="reg.get('phone').valid || reg.get('phone').untouched" class="text-danger">Phone Number is Required</p>
+    </div>
+    
+    <div class="col-md-12">
+        <input type="email" formControlName="email" [class.is-invalid]="reg.get('email').invalid && reg.get('email').touched"class="form-control" placeholder="email">
+        <p [class.d-none]="reg.get('email').valid || reg.get('email').untouched" class="text-danger">Email is Required</p>
+    </div>
+    <div class="col-md-12">
+        <input type="password" formControlName="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [class.is-invalid]="reg.get('pswd').invalid && reg.get('pswd').touched" class="form-control" placeholder="Password">
+        <div *ngIf="errors ||(reg.get('pswd').invalid && reg.get('pswd').touched)">
+            <p *ngIf="reg.get('pswd').errors.required" class="text-danger">Password is required</p>
+            <p *ngIf="reg.get('pswd').errors.pattern" class="text-danger">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</p>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <input type="date" formControlName="date" [class.is-invalid]="reg.get('date').invalid && reg.get('date').touched" class="form-control">
+        <p [class.d-none]="reg.get('date').valid || reg.get('date').untouched" class="text-danger">DOB is Required</p>
+    </div>
+    <div class="col-md-12">
+        <textarea name="" placeholder="Address" formControlName="addr" [class.is-invalid]="reg.get('addr').invalid && reg.get('addr').touched" class="form-control"></textarea>
+        <p [class.d-none]="reg.get('addr').valid || reg.get('addr').untouched" class="text-danger">Address is Required</p>
+    </div>
+    <div class="col-md-12">
+        <input type="file"  formControlName="image" [class.is-invalid]="reg.get('image').invalid && reg.get('image').touched" class="form-control" >
+        <p [class.d-none]="reg.get('image').valid || reg.get('image').untouched" class="text-danger">Image  is Required</p>
+    </div>
+    <div class="col-md-12">
+        <input type="radio" name="gender"  >Male
+        <input type="radio" name="gender" >Female
+    </div>
+    <div class="col-md-12">
+        <input type="search" list="sp" formControlName="country" [class.is-invalid]="reg.get('country').invalid && reg.get('country').touched" class="form-control" placeholder="choose countery">
+        <datalist id="sp">
+            <option value="Indea"></option>
+            <option value="America"></option>
+            <option value="Austrelia"></option>
+            <option value="Saudi Arab"></option>
+            <option value="Japan"></option>
+            <option value="Pakisthan"></option>
+            <option value="South Africa"></option>
+            <option value="Africa"></option>
+        </datalist>
+        <p [class.d-none]="reg.get('country').valid || reg.get('country').untouched" class="text-danger">country is Required</p>
+    </div>
+    <div class="col-md-12">
+        <button type="submit" [disabled]="reg.invalid" >Submit</button>
+    </div>
+    <div class="col-md-12">
+        <p class="size18">If u have account then<span><a routerLink="login">Login</a></span></p>
+    </div>
+
+    </div>
+</div>
+</form>
+<div class="whtbg">
+{{reg.value | json}}
+</div>
