@@ -23,7 +23,7 @@ datas = [];
   delete()
   {
    this.st.popData();
-  } 
+  }
  edit() {
     // Update item by taking id and updated data object
     this.st.editData( this.datas).subscribe(response => {
