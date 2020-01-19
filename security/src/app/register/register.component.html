@@ -56,10 +56,10 @@
         <p [class.d-none]="reg.get('country').valid || reg.get('country').untouched" class="text-danger">country is Required</p>
     </div>
     <div class="col-md-12">
-        <button type="submit" [disabled]="reg.invalid" >Submit</button>
+        <button type="submit" [disabled]="reg.invalid" (click)='onSubmit()' >Submit</button>
     </div>
     <div class="col-md-12">
-        <p class="size18">If u have account then<span><a routerLink="login">Login</a></span></p>
+        <p class="size18">If u have account then<span><a routerLink="../login">Login</a></span></p>
     </div>
 
     </div>

@@ -1,1 +1,23 @@
-<p>login works!</p>
+<video loop autoplay><source src="../../assets/login.mp4"></video>
+<form [formGroup]="reg">
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 whtbg">
+        <h1>Login</h1>
+    <div class="col-md-12 top35">
+        <input type="email" formControlName="email"[class.is-invalid]="reg.get('email').invalid && reg.get('email').touched" class="form-control" placeholder="Email">
+    </div>
+    <div class="col-md-12">
+        <input type="password" formControlName="pswd" [class.is-invalid]="reg.get('pswd').invalid && reg.get('pswd').touched" class="form-control" placeholder="Password">
+    </div>
+    <div class="col-md-12">
+        <button type="button" (click)="login()" [disabled]="reg.invalid">Login</button>
+    </div>
+    <div class="col-md-12">
+        <p>
+        if you don't have account then <a routerLink="../register">Register here</a>
+        </p>
+    </div>
+    </div>
+</div>
+</form>
