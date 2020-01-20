@@ -1,0 +1,59 @@
+<video loop autoplay><source src="../../assets/user.mp4"></video>
+<div class='section_01'>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 whtbg">
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-4">
+                <i class="fa fa-user-circle-o icon"></i>
+            </div>
+        </div>
+        <table class="bdr top">
+            <tr class="bdr">
+                <td colspan="9" class="center bdr wd">List of Users</td>
+            </tr>
+            <tr class="bdr wd">
+                <td class="bd">Name</td>
+                <td class="bd">Mobile Number</td>
+                <td class="bd">Email</td>
+                <td class="bd">DOB</td>
+                <td class="bd">Address</td>
+                <td class="bd">gender</td>
+                <td class="bd">Country</td>
+                <td class="bd">Delete</td>
+                <td class="bd">Edit</td>
+            </tr>
+            <tr *ngFor="let user of users" class="bdr">
+            <td class="bd">
+              {{user.name}}
+            </td>
+            <td class="bd">
+              {{user.phone}}
+            </td>
+            <td class="bd">
+              {{user.email}}
+            </td>
+            <td class="bd">
+              {{user.date}}
+            </td >
+            <td class="bd">
+              {{user.addr}}
+            </td>
+             <td class="bd">
+              {{user.gender}}
+             </td>
+             <td class="bd">
+              {{user.country}}
+             </td>
+             <td class="bd">
+                <button type="button" (click)="delt()">delete</button>
+             </td>
+             <td class="bd">
+                 <a routerLink="">edit</a>
+            </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>

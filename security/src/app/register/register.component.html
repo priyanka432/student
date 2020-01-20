@@ -38,8 +38,8 @@
         <p [class.d-none]="reg.get('image').valid || reg.get('image').untouched" class="text-danger">Image  is Required</p>
     </div>
     <div class="col-md-12">
-        <input type="radio" name="gender"  >Male
-        <input type="radio" name="gender" >Female
+        <input type="radio" name="gender" formControlName="gender" value="Male" >Male
+        <input type="radio" name="gender" formControlName="gender" value="Female" >Female
     </div>
     <div class="col-md-12">
         <input type="search" list="sp" formControlName="country" [class.is-invalid]="reg.get('country').invalid && reg.get('country').touched" class="form-control" placeholder="choose countery">

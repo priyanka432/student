@@ -6,17 +6,28 @@
         <h1>Login</h1>
     <div class="col-md-12 top35">
         <input type="email" formControlName="email"[class.is-invalid]="reg.get('email').invalid && reg.get('email').touched" class="form-control" placeholder="Email">
+        <div *ngFor="let emp of datas">
+            <div *ngIf="(reg.get('email').value!=emp.email) && (reg.get('email').touched)">
+                <p class="text-danger">Email isn't exist</p>
+            </div>
+        </div>
     </div>
     <div class="col-md-12">
         <input type="password" formControlName="pswd" [class.is-invalid]="reg.get('pswd').invalid && reg.get('pswd').touched" class="form-control" placeholder="Password">
     </div>
+    <div *ngFor="let emp of datas">
+            <div *ngIf="(reg.get('pswd').value!=emp.pswd) && (reg.get('pswd').touched)">
+                <p class="text-danger">Pasword isn't same</p>
+            </div>
+        </div>
     <div class="col-md-12">
-        <button type="button" (click)="login()" [disabled]="reg.invalid">Login</button>
+        <button type="submit" (click)="login()" [disabled]="reg.invalid">Login</button>
     </div>
     <div class="col-md-12">
         <p>
-        if you don't have account then <a routerLink="../register">Register here</a>
+        if you don't have account then <a routerLink="../register">Register here<i class="fa fa-registered" aria-hidden="true"></i></a>
         </p>
+        <p>list of user <a routerLink="../user"><i class="fa fa-registered" aria-hidden="true"></i></a></p>
     </div>
     </div>
 </div>

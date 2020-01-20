@@ -1,0 +1,78 @@
+<div class="section_01">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 whtbg">
+            <div class="col-md-12">
+                <div *ngFor="let emp of data">
+                        {{emp.img}}
+                    </div>
+
+        </div>
+        <div class="col-md-12">
+                <div *ngFor="let emp of data">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5">
+                          <p>Name</p>
+                        </div>
+                        <div class="col-md-5">
+                                {{emp.name}}
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-2"></div> 
+                            <div class="col-md-5">
+                              <p>Mobile Number</p>
+                            </div>
+                            <div class="col-md-5">
+                                    {{emp.phone}}
+                            </div>
+                        </div>
+                    <div class="row">
+                            <div class="col-md-2"></div> 
+                            <div class="col-md-5">
+                                <p>Email</p>
+                            </div>
+                            <div class="col-md-5">
+                                        {{emp.email}}
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-2"></div> 
+                            <div class="col-md-5">
+                                <p>Address</p>
+                            </div>
+                            <div class="col-md-5">
+                                        {{emp.addr}}
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>  
+                        <div class="col-md-5">
+                                <p>Gender</p>
+                            </div>
+                            <div class="col-md-5">
+                                        {{emp.gender}}
+                            </div>
+                    </div>
+                        
+                    <div class="row">
+                            <div class="col-md-2"></div> 
+                            <div class="col-md-5">
+                                <p>Country</p>
+                            </div>
+                            <div class="col-md-5">
+                                        {{emp.country}}
+                            </div>
+                    </div>
+                        
+                        
+                        
+                    
+
+        </div>
+        </div>
+    </div>
+    
+
+</div>

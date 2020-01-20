@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,7 +9,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private employeeService: EmployeeService) { }
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService, private router: Router) { }
   reg = this.fb.group(
     {
       name: ['', Validators.required],
@@ -18,18 +19,15 @@ export class RegisterComponent implements OnInit {
       date: ['', Validators.required],
       addr: ['', Validators.required],
       image: ['', Validators.required],
+      gender: ['', Validators.required],
       country: ['', Validators.required]
     }
   );
   onSubmit() {
     console.log(this.reg.value);
     this.employeeService.reg(this.reg.value);
-    // this.list();
+    this.router.navigateByUrl('login');
   }
-  /*list() {
-    this.router.navigateByUrl('list');
-  }*/
-
   ngOnInit() {
   }
 

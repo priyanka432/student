@@ -7,12 +7,16 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
