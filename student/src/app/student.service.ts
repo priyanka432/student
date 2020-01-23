@@ -15,9 +15,9 @@ export class StudentService {
   getData() {
     return (this.userData);
   }
-  popData()
+  deleteData(id)
   {
-    this.userData.pop();
+    this.userData.splice(id, 1);
   }
   editData(userData):Observable<any>
   {

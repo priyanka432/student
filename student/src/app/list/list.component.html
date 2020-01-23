@@ -16,19 +16,19 @@
                             <td class="size20">Age</td>
                             <td class="size20">Mobile Number</td>
                             <td class="size20">class</td>
-                            <td class="size20">Action</td>
+                            <td class="size20" colspan="3">Action</td>
                            
                         </tr>
                     </thead>
                         <tbody>
-                            <tr *ngFor="let data of datas">
+                            <tr *ngFor="let data of datas; index as i">
                     
                                 <td>{{data.name}}</td>
                                 <td>{{data.age}}</td>
                                 <td>{{data.mobile}}</td>
                                 <td>{{data.class}}</td>
-                                <td><button type="button" (click)="edit()">Edit</button>
-                                <button type="button" (click)="delete()">Delete</button></td>
+                                <td><button type="button" (click)="edit(i)">Edit</button></td>
+                                <td><button type="button" (click)="delete(i)">Delete</button></td>
                                 <td><button type="button" (click)="add()">add</button></td>
 
                             </tr>

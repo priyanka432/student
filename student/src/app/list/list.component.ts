@@ -20,9 +20,9 @@ datas = [];
   {
     this.router.navigateByUrl('st-information');
   }
-  delete()
+  delete(index)
   {
-   this.st.popData();
+   this.st.deleteData(index);
   }
  edit() {
     // Update item by taking id and updated data object
