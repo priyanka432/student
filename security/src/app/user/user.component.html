@@ -14,6 +14,7 @@
                 <td colspan="9" class="center bdr wd">List of Users</td>
             </tr>
             <tr class="bdr wd">
+           
                 <td class="bd">Name</td>
                 <td class="bd">Mobile Number</td>
                 <td class="bd">Email</td>
@@ -24,7 +25,8 @@
                 <td class="bd">Delete</td>
                 <td class="bd">Edit</td>
             </tr>
-            <tr *ngFor="let user of users" class="bdr">
+            <tr *ngFor="let user of users; index as i" class="bdr">
+               
             <td class="bd">
               {{user.name}}
             </td>
@@ -47,13 +49,14 @@
               {{user.country}}
              </td>
              <td class="bd">
-                <button type="button" (click)="delt()">delete</button>
+                <button type="button" (click)="deleteUser(i)">delete</button>
              </td>
              <td class="bd">
-                 <a routerLink="">edit</a>
+                <button type="button" (click)="editUser(i)">edit</button>
             </td>
             </tr>
         </table>
         </div>
     </div>
 </div>
+

@@ -8,12 +8,14 @@ import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
+import { FoundComponent } from './found/found.component';
 @NgModule({
   declarations: [
     AppComponent,
     StInformationComponent,
     ListComponent,
-    EditComponent
+    EditComponent,
+    FoundComponent
   ],
   imports: [
     BrowserModule,

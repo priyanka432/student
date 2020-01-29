@@ -25,8 +25,11 @@
         <div class="col-md-12">
             <p class="size20">Mobile No.</p>
             <div class="form-group">
-                <input type="text" name=" "  [class.is-invalid]="student.get('mobile').invalid && student.get('mobile').touched" formControlName="mobile" placeholder="Mobile Number" class="form-control">
-                <p class="text-danger" [class.d-none]="student.get('mobile').valid || student.get('mobile').untouched">Mobile Number is Required</p>
+                <input type="text" name=" "  [class.is-invalid]="student.get('mobile').invalid && student.get('mobile').touched" formControlName="mobile" placeholder="Mobile Number" class="form-control" pattern=".{10}">
+                <div *ngIf="errors || ((student.get('mobile').touched) && (student.get('mobile').invalid))">
+                    <div *ngIf="student.get('mobile').errors.required" class="text-danger">Mobile Number is Required</div>
+                    <div *ngIf="student.get('mobile').errors.pattern" class="text-danger">Mobile No. is invalid</div>
+                </div>
             </div>
         </div>
         <div class="col-md-12">
@@ -42,7 +45,8 @@
         </div>
         <div class="col-md-12">
         
-                <button type="submit" [disabled]="student.invalid" (click)='onSubmit()'>Save</button>
+                <button type="submit" [disabled]="student.invalid" (click)='onSubmit()'  >Save</button>
+                
             
         </div>
     </div>

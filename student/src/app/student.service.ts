@@ -6,11 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentService {
   userData = [];
-  url = 'http://localhost:3000/set';
-  constructor(private http: HttpClient) { }
-  student(userData) {
+  // index: number;
+  constructor() { }
+  student(userData, index?) {
     console.log(userData);
+    if (index != null)
+    {
+        this.userData[index] = userData;
+    }
+     else
+    {
     this.userData.push(userData);
+    }
   }
   getData() {
     return (this.userData);
@@ -19,10 +26,9 @@ export class StudentService {
   {
     this.userData.splice(id, 1);
   }
-  editData(userData):Observable<any>
+  editData(id)
   {
-    return this.http
-    .put(this.url, userData);
+    return this.userData[id];
   }
   }
 

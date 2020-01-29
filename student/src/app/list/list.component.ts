@@ -11,9 +11,9 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ListComponent implements OnInit {
 datas = [];
-  constructor(private st: StudentService, private router: Router, private http: HttpClient) { }
+  constructor(private studentService: StudentService, private router: Router, private http: HttpClient) { }
   ngOnInit() {
-   this.datas = this.st.getData();
+   this.datas = this.studentService.getData();
    console.log(this.datas);
   }
   add()
@@ -22,13 +22,15 @@ datas = [];
   }
   delete(index)
   {
-   this.st.deleteData(index);
+   const a = confirm('Are you sure you want to permanently delete ? ');
+   if (a === true)
+    {
+    this.studentService.deleteData(index);
+    }
   }
- edit() {
-    // Update item by taking id and updated data object
-    this.st.editData( this.datas).subscribe(response => {
-      this.router.navigate(['st-information']);
-    })
+ edit(index) {
+    this.studentService.editData( index);
+    this.router.navigate(['/edit-user', index]);
   }
 }
 
