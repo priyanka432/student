@@ -1,0 +1,75 @@
+<div class="sidenav">
+    <a routerLink="../dashboard">Home</a>
+    <a routerLink="../dashboard/profile">User Profile</a>
+    <a routerLink="../../dashboard/changePswd">Change Password</a>
+    <a routerLink="#">Document</a>
+    <a routerLink="#">Trash</a>
+</div>
+<div class="main top30">
+    <div class="section_02">
+        <div class="row ">
+            
+            <div class="col-md-3"></div>
+
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <p>Name</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Mobile Number</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Email</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Address</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Country</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>DOB</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Gender</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Password</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div *ngFor="let users of user">
+                        <div class="col-md-12">
+                            <p>
+                            {{users.name}}
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.mobile}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.email}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.address}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.country}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.date}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.gender}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>{{users.pswd}}</p>
+                        </div>
+                    
+                    </div>
+
+                </div>
+            
+        </div>
+    </div>
+  </div>    

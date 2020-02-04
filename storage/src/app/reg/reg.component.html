@@ -1,0 +1,175 @@
+<form [formGroup]="reg">
+<div class="section_01">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <p class="align"><a routerLink="../reg" class="blue">Sign<span class="bg">Up</span></a></p>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-1 top10">
+            <a routerLink="../list" class="list">List of Users</a>
+        </div>
+        <div class="col-md-2">
+            <button class="bt"  data-toggle="modal" data-target="#myModal" >Sign in</button>
+        </div>
+    </div>
+    <div class="row top50">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 whtbg">
+           
+            <div class="col-md-12">
+             
+            </div>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="name" [class.is-invalid]="reg.get('name').invalid && reg.get('name').touched" placeholder="Name">
+                <p class="text-danger" [class.d-none]="reg.get('name').valid || reg.get('name').untouched">Name is required</p>
+            </div>
+            <div class="col-md-12">
+                <input type="text" pattern='.{10}' class="form-control" formControlName="mobile" [class.is-invalid]="reg.get('mobile').invalid && reg.get('mobile').touched" placeholder="Mobile Number">
+                <div *ngIf="errors || ((reg.get('mobile').invalid) && reg.get('mobile').touched)">
+                <div *ngIf="reg.get('mobile').errors.pattern" class="text-danger">Mobile no. isn't valid</div>
+                <div *ngIf="reg.get('mobile').errors.required" class="text-danger">Mobile No. is Required</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="email" [class.is-invalid]="reg.get('email').invalid && reg.get('email').touched" placeholder="Email">
+                <div *ngIf="errors || ((reg.get('email').invalid) && reg.get('email').touched)">
+                    <div *ngIf="reg.get('email').errors.pattern" class="text-danger">Email must be consist @</div>
+                    <div *ngIf="reg.get('email').errors.required" class="text-danger">Email is Required</div>
+                    </div>
+            </div>
+            <div class="col-md-12">
+                <input type="password" class="form-control" formControlName="pswd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  [class.is-invalid]="reg.get('pswd').invalid && reg.get('pswd').touched" placeholder="password">
+                <div *ngIf="errors || (reg.get('pswd').invalid && reg.get('pswd').touched)">
+                    <div class="text-danger" *ngIf="reg.get('pswd').errors.pattern">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+                    <div class="text-danger" *ngIf="reg.get('pswd').errors.required">Password is Required</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="date" [class.is-invalid]="reg.get('date').invalid && reg.get('date').touched" class="form-control" formControlName="date">
+                <div class="text-danger" [class.d-none]="reg.get('date').valid || reg.get('date').untouched">DOB is Required</div>
+            </div>
+            <div class="col-md-12">
+                <textarea class="form-control" formControlName="address" placeholder="Address" [class.is-invalid]="reg.get('address').invalid && reg.get('address').touched"></textarea>
+                <div class="text-danger" [class.d-none]="reg.get('address').valid || reg.get('address').untouched">Address is Required</div>
+            </div>
+            <div class="col-md-12">
+                <input type="file" class="form-control" formControlName="img" [class.is-invalid]="reg.get('img').invalid && reg.get('img').touched" >
+                <div class="text-danger" [class.d-none]="reg.get('img').valid || reg.get('img').untouched">Image is Required</div>
+            </div>
+            <div class="col-md-12">
+                <input type="search" class="form-control" list="sp" formControlName="country" placeholder="Choose Country" [class.is-invalid]="reg.get('country').invalid && reg.get('country').touched">
+                <datalist id="sp">
+                    <option value="Indea"></option>
+                    <option value="America"></option>
+                    <option value="Bangladesh"></option>
+                    <option value="Itali"></option>
+                    <option value="Afganisathan"></option>
+                    <option value="Brazil"></option>
+                    <option value="Austrliya"></option>
+                    <option value="Dubai"></option>
+                    <option value="Japan"></option>
+                </datalist>
+                <div class="text-danger" [class.d-none]="reg.get('country').valid || reg.get('country').untouched">Country is Required</div>
+            </div>
+            <div class="col-md-12">
+                <span>Choose Gender</span>&nbsp;
+                <input type="radio" value="Female"name="gender" formControlName="gender" [class.is-invalid]="reg.get('gender').invalid && reg.get('gender').touched">Female
+                <input type="radio" value="Male" name="gender" formControlName="gender" [class.is-invalid]="reg.get('gender').invalid && reg.get('gender').touched">Male
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="form-control but" [disabled]="reg.invalid" (click)="onSubmit()">Sign Up</button>
+            </div>
+
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4 top40">
+            <img src="../assets/images.jpeg">
+        </div>
+    </div>
+</div>
+</form>
+
+<!-- Sign In-->
+
+   
+ 
+    
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <p class="sign">Sign In</p>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+         <!--<div class="modal-body">
+            
+            
+              <div class="col-md-12">
+            <input type="email" class="form-control" formControlName="email" [class.is-invalid]="login.get('email').invalid && login.get('email').touched" placeholder="Email">
+            <div *ngFor="let users of user; index as i">
+      
+                
+                <div *ngIf="(login.get('email').value != users.email) && (login.get('email').touched)">
+                   <p class="text-danger"> email is not valid</p>
+                </div>
+            </div>
+              </div>
+             
+            <div class="col-md-12">
+                <input type="password" class="form-control" formControlName="pswd" [class.is-invalid]="login.get('pswd').invalid && login.get('pswd').touched" placeholder="Password">
+                <div *ngFor="let users of user; index as i">
+                <div *ngIf="(login.get('pswd').value != users.pswd) && (login.get('pswd').touched)">
+                    <p class="text-danger">
+                        Password isn't valid
+                    </p>
+                </div>
+
+            </div>
+              
+              </div>
+            <div class="col-md-12">
+                <button type="submit" class="bt" (click)="signIn()">Sign In</button>
+            </div>
+            </div>-->
+
+
+            <div class="modal-body">
+            
+            
+                <div class="col-md-12">
+              <input type="email" class="form-control" #e  placeholder="Email">
+              
+                </div>
+               
+              <div class="col-md-12">
+                  <input type="password" class="form-control" #p  placeholder="Password">
+              </div> 
+              <div class="col-md-12">
+                  <button type="submit" class="bt" (click)="signIn(e.value, p.value)" data-dismiss="modal">Sign In</button>
+              </div>
+             <!--<div class="col-md-12">
+                <p>if you don't have an account then <a routerLink="reg">Sign Up</a></p>
+            </div>-->
+             
+              </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn" data-dismiss="modal">Close</button>
+          </div>
+          
+        
+     </div>
+    </div>
+    </div>
+    
+
+ 
+    
+ 

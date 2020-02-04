@@ -1,0 +1,40 @@
+<div class="row top30">
+    <div class="col-md-9"></div>
+    <div class="col-md-2">
+        <button class="bt" (click)="join()">Join/Add</button>
+    </div>
+    
+</div>
+<p class="top30">list of User's</p>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <table class="bdr">
+            <thead class="bdr">
+                <td class="bdr">S.No.</td>
+                <td class="bdr">Name</td>
+                <td class="bdr">Mobile Number</td>
+                <td class="bdr">Email</td>
+                <td class="bdr">DOB</td>
+                <td class="bdr">Address</td>
+                <td class="bdr">Country</td>
+                <td class="bdr">Gender</td>
+                <td class="bdr">Delete</td>
+                <td class="bdr">Edit</td>
+                
+            </thead>
+            <tr *ngFor="let Data of data; index as i">
+                <td class="bdr">{{i+1}}</td>
+                <td class="bdr">{{Data.name}}</td>
+                <td class="bdr">{{Data.mobile}}</td>
+                <td class="bdr">{{Data.email}}</td>
+                <td class="bdr">{{Data.date}}</td>
+                <td class="bdr">{{Data.address}}</td>
+                <td class="bdr">{{Data.country}}</td>
+                <td class="bdr">{{Data.gender}}</td>
+                <td class="bdr"><button (click)="delete(i)" class="btn">Delete</button></td>
+                <td class="bdr"><button (click)="edit(i)" class="btn">Edit</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

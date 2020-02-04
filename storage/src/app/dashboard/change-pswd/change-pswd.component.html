@@ -1,0 +1,37 @@
+<div class="sidenav">
+    <a routerLink="../dashboard">Home</a>
+    <a routerLink="../../dashboard/profile">User Profile</a>
+    <a routerLink="../dashboard/changePswd">Change Password</a>
+    <a routerLink="#">Document</a>
+    <a routerLink="#">Trash</a>
+</div>
+<div class="main top80">
+    <form [formGroup]="change">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <p class="pswd">Change Pssword</p>
+            </div>
+            <div class="col-md-12 top20">
+                <input type="password" #p class="form-control" placeholder="Old password">
+            </div>
+            <div class="col-md-12">
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" formControlName="newPswd" class="form-control" [class.is-invalid]="change.get('newPswd').invalid && change.get('newPswd').touched" placeholder="New password">
+                <div *ngIf="errors || (change.get('newPswd').invalid && change.get('newPswd').touched)">
+                    <div *ngIf="change.get('newPswd').errors.pattern" class="text-danger size12"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="password"  formControlName="confirmPswd" class="form-control" [class.is-invalid]="change.get('confirmPswd').invalid && change.get('confirmPswd').touched" placeholder="Confirm password">
+            </div>
+            <div><p class="text-danger size12">{{msg}}</p></div>
+            <div class="col-md-12">
+              <button type="submit" (click)="chang(p.value)" class="bt">Change Password</button>
+            </div>
+        </div>
+
+    </div>
+    </form>
+    </div>
+  
