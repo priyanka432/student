@@ -20,5 +20,19 @@ export class DashboardComponent implements OnInit {
   {
     this.router.navigateByUrl('dashboard/changePswd');
   }
+  document()
+  {
+    this.router.navigateByUrl('dashboard/document');
+  }
+  trash()
+  {
+    this.router.navigateByUrl('dashboard/trash');
+  }
+  home()
+  {
+    this.router.navigateByUrl('dashboard/home');
+
+  }
+
 
 }

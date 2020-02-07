@@ -1,0 +1,68 @@
+
+<div class="main">
+    <div class="row top15">
+        <div class="col-md-9 top15"></div>
+        <div class="col-md-2 top15">
+            <button class="bt"  data-toggle="modal" data-target="#myModal" >Add  Images</button>
+        </div>
+    </div>
+    <div class="col-md-12 top15">
+        <p class="images">Images</p>
+    </div>
+    <div class="row top20">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row " >
+               
+                    <div class="col-md-4 bdr">Image</div>
+                    <div class="col-md-4 bdr">Delete</div>
+                    <div class="col-md-4 bdr"> Share</div>
+                </div>
+                <div class="row" *ngFor="let images of image; index as i">
+                    <div class="col-md-4 bdr"> <img  [src]="image.length && image[i].img && image[i].img.result" alt="" class="img"></div>
+                    <div class="col-md-4 bdr"><button type="button" (click)="delete(i)" ><i class="fa fa-trash-o icon"></i></button></div>
+                    <div class="col-md-4 bdr" *ngIf="check == 1 && shareIndex == i; else name" ><button (click)="shareCancel(i)"><i class="fa fa-share-alt icon1" ></i>
+                 </button></div>
+                    <ng-template #name>
+                      <div class="col-md-4 bdr" ><button (click)="share(i)"><i class="fa fa-share-alt icon" ></i></button></div>
+                    </ng-template>
+                </div>
+        </div>
+    </div>
+</div>
+<!--Model-->
+<div class="modal top15" id="myModal">
+    <div class="modal-dialog top15">
+      <div class="modal-content top15">
+      
+        <!-- Modal Header -->
+        <div class="modal-header top15">
+          <p class="sign">Add Images</p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <form [formGroup]="images">
+      <div class="modal-body">
+          
+          
+            <div class="col-md-12 top15">
+          <input type="file" class="form-control" formControlName="img" [class.is-invalid]="images.get('img').invalid && images.get('img').touched" (change)="imageget($event)" placeholder="Choose File">
+          <div [class.d-none]="images.get('img').valid || images.get('img').untouched" class="text-danger top15" >This Field is Required</div>
+          <img *ngIf="imageUrl && imageUrl?.result" [src]="imageUrl?.result" alt="">
+            </div>
+          <div class="col-md-12 top18">
+              <button type="submit" class="bt"  data-dismiss="modal" (click)="add()" [disabled]="images.invalid">Add Images</button>
+          </div>
+          </div>
+            </form>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer top15">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+        
+      
+   </div>
+  </div>
+  </div>

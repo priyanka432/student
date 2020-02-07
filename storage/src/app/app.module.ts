@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AuthGuard } from './auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegComponent } from './reg/reg.component';
 import { ListComponent } from './list/list.component';
-import { UserService } from './user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FoundComponent } from './found/found.component';
 @NgModule({
@@ -20,12 +18,7 @@ import { FoundComponent } from './found/found.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [UserService, AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor()
-  {
-  console.log('admin module loaded');
-  }
-}
+export class AppModule {}

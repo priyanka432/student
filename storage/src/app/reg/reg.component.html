@@ -54,13 +54,14 @@
                 <div class="text-danger" [class.d-none]="reg.get('address').valid || reg.get('address').untouched">Address is Required</div>
             </div>
             <div class="col-md-12">
-                <input type="file" class="form-control" formControlName="img" [class.is-invalid]="reg.get('img').invalid && reg.get('img').touched" >
+                <input type="file" class="form-control" formControlName="img" [class.is-invalid]="reg.get('img').invalid && reg.get('img').touched" (change)="imageget($event)">
+                <img *ngIf="imageUrl && imageUrl?.result" [src]="imageUrl?.result" alt="">
                 <div class="text-danger" [class.d-none]="reg.get('img').valid || reg.get('img').untouched">Image is Required</div>
             </div>
             <div class="col-md-12">
                 <input type="search" class="form-control" list="sp" formControlName="country" placeholder="Choose Country" [class.is-invalid]="reg.get('country').invalid && reg.get('country').touched">
                 <datalist id="sp">
-                    <option value="Indea"></option>
+                    <option value="India"></option>
                     <option value="America"></option>
                     <option value="Bangladesh"></option>
                     <option value="Itali"></option>
@@ -107,57 +108,49 @@
           </div>
           
           <!-- Modal body -->
-         <!--<div class="modal-body">
+          <form [formGroup]="login">
+        <div class="modal-body">
             
             
               <div class="col-md-12">
             <input type="email" class="form-control" formControlName="email" [class.is-invalid]="login.get('email').invalid && login.get('email').touched" placeholder="Email">
-            <div *ngFor="let users of user; index as i">
-      
-                
-                <div *ngIf="(login.get('email').value != users.email) && (login.get('email').touched)">
-                   <p class="text-danger"> email is not valid</p>
-                </div>
-            </div>
               </div>
              
             <div class="col-md-12">
                 <input type="password" class="form-control" formControlName="pswd" [class.is-invalid]="login.get('pswd').invalid && login.get('pswd').touched" placeholder="Password">
-                <div *ngFor="let users of user; index as i">
-                <div *ngIf="(login.get('pswd').value != users.pswd) && (login.get('pswd').touched)">
-                    <p class="text-danger">
-                        Password isn't valid
-                    </p>
-                </div>
-
-            </div>
               
               </div>
             <div class="col-md-12">
-                <button type="submit" class="bt" (click)="signIn()">Sign In</button>
+                <button type="submit" class="bt" (click)="signIn()" data-dismiss="modal">Sign In</button>
             </div>
-            </div>-->
+            </div>
 
+
+
+
+
+          <!-- <form [formGroup]="login">
 
             <div class="modal-body">
             
             
                 <div class="col-md-12">
-              <input type="email" class="form-control" #e  placeholder="Email">
+              <input type="email" class="form-control" formControlName="email" autocomplete="off"  placeholder="Email">
               
                 </div>
                
               <div class="col-md-12">
-                  <input type="password" class="form-control" #p  placeholder="Password">
+                  <input type="password" class="form-control" formControlName="pswd" autocomplete="off"  placeholder="Password">
               </div> 
               <div class="col-md-12">
-                  <button type="submit" class="bt" (click)="signIn(e.value, p.value)" data-dismiss="modal">Sign In</button>
+                  <button type="submit" class="bt" (click)="signIn()" data-dismiss="modal">Sign In</button>
               </div>
-             <!--<div class="col-md-12">
+             <div class="col-md-12">
                 <p>if you don't have an account then <a routerLink="reg">Sign Up</a></p>
             </div>-->
              
-              </div>
+              
+              </form>
           
           <!-- Modal footer -->
           <div class="modal-footer">
@@ -168,8 +161,3 @@
      </div>
     </div>
     </div>
-    
-
- 
-    
- 

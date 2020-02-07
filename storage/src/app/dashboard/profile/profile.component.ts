@@ -11,9 +11,7 @@ public user = [];
 
   ngOnInit() {
     this.user = this.userService.profile();
-    console.log("profile="+this.user);
+    console.log('profile=' + this.user);
     // var id = this.user.findIndex(res => res)
-
   }
-
 }

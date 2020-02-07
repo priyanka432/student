@@ -1,0 +1,14 @@
+<div class="row top30">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+    <div class="col-md-4 bdr container" *ngFor="let images of trash; index as i">
+        <img  [src]="trash.length && trash[i].img && trash[i].img.result" alt="" class="image">
+        <div class="middle">
+            <button type="button" (click)="delete(i)">delete</button>
+            <button type="button" (click)="restore(i)">restore</button>
+          </div>
+    </div>
+    </div>
+    </div>
+</div>
